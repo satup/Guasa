@@ -51,9 +51,19 @@ $("document").ready(function(){
 });
 
 function vcfParse(vcf){
+		if(g.contacts && g.contacts.length>0){
+
+contactss=localStorage.getItem("contacts");
+contactsss=contactss.replace(']',',');
+	contacts = vcardToJSON(vcf);
+	contactsssss=JSON.stringify(contacts);
+	contactssss=contactsssss.replace('[','');
+	localStorage.setItem("contacts", contactsss+contactssss);
+	g.contacts= contacts;
+	}else{
 	contacts = vcardToJSON(vcf);
 	localStorage.setItem("contacts", JSON.stringify(contacts));
-	g.contacts = contacts;
+	g.contacts= contacts;}
 	load("contacts");
 }
 
