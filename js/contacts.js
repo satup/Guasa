@@ -5,6 +5,8 @@ function contactsList(){
 		for(i in g.contacts){
 			contact = g.contacts[i];
 			$("body>section#contacts>ul#contactslist").append("<li id=\""+ i +"\" onclick=\"chatWith(" + i + ");\"><img src=\"" + contact.photo + "\" alt=\"\" /><div id=\"text\">" + contact.name + "<br /><span class=\"small\">" + contact.cel + "</span></div></li>");
+				$("body>section#contacts>figure#vcfimport").show();
+		
 		}
 	}else{
 		$("body>section#contacts>ul#contactslist").html("<li id=\"none\"><div id=\"text\">No contacts yet<br /><span class=\"small\">Import from a <em>.vcf</em> file by dragging and dropping below</span></div></li>");
