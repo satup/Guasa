@@ -1,0 +1,370 @@
+@font-face{
+	font-family: Roboto;
+	src: url('../fonts/Roboto-Regular.eot');
+}
+@font-face{
+	font-family: Roboto;
+	src: url('../fonts/Roboto-Regular.ttf');
+}
+a{
+	text-decoration: none;
+}
+p a{
+	border-bottom: 1px dotted #999;
+}
+p a:hover{
+	border-bottom: 1px solid #999;
+}
+a:hover{
+	cursor: pointer;
+}
+html{
+	padding: 0;
+	font-family: Roboto;
+	font-size: 0.9em;
+}
+body{
+	position: fixed;
+	background-color: #3C3B37;
+	color: #FFF;
+	top: 0; bottom: 0;	left: 0; right: 0;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body>section{
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+body>section>header{
+	display: block;
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	height: 40px;
+	background-color: #3C3B37;
+	color: #FFF;
+}
+body>section>header>h1{
+	margin: 10px 0 0 10px;
+	font-size: 1.3em;
+	letter-spacing: -0.05em;
+}
+body>section>header>div.tools{
+	position: absolute;
+	top: 0; right: 0;
+	padding: 10px;
+}
+body>section>header>div.tools>a{
+	padding: 2px 10px;
+}
+body>section>header>div.tools>a>img{
+	vertical-align: middle;
+}
+body>section>header>div.tools>a:not(:last-child){
+	border-right: 1px solid #999;
+}
+body>section#splash{
+	background-color: #222;
+	color: #FFF;
+	position: absolute;
+	top: 0; bottom: 0;	left: 0; right: 0;
+	background: #253030;
+	background-image: -webkit-radial-gradient(50% 50%, circle cover, #384e4e 0%, #111111 100%);
+	background-image: -moz-radial-gradient(50% 50%, circle cover, #384e4e 0%, #111111 100%);
+	background-image: -o-radial-gradient(50% 50%, circle cover, #384e4e 0%, #111111 100%);
+	background-image: -ms-radial-gradient(50% 50%, circle cover, #384e4e 0%, #111111 100%);
+	background-image: radial-gradient(50% 50%, circle cover, #384e4e 0%, #111111 100%);
+}
+body>section#splash>*{
+	display: block;
+	margin: 20px auto;
+	text-align: center;
+}
+body>section#splash>h1{
+	margin-top: 150px;
+}
+body>section#splash>div#warning{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+body>section#splash>div#warning>p{
+	font-size: 0.9em;
+	padding: 0 30px 0 30px;
+}
+body>section#login{
+	position: absolute;
+	top: 0; bottom: 0;	left: 0; right: 0;
+	background-color: #EEE;
+	color: #333;
+}
+body>section#login>form{
+	display: block;
+	position: absolute;
+	top: 40px; bottom: 0;	left: 0; right: 0;
+	padding: 20px;
+}
+body>section#login>form>p{
+	margin-bottom: 30px;
+}
+body>section#login>form>fieldset{
+	border: none;
+	padding: 0;
+	margin-top: 15px;
+}
+body>section#login>form>fieldset>label{
+	font-size: 0.9em;
+}
+body>section#login>form>fieldset>input, body>section#login>form>fieldset>select{
+	float: right;
+}
+body>section#login>form>a#login{
+	display: block;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding: 10px 20px;
+	background-color: #F80;
+	color: #FFF;
+	border-radius: 2px;
+	border: none;
+	border-top: 1px solid #FB3;
+	border-bottom: 1px solid  #BE6700;
+	font-size: 0.8em;
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+body>section#chats>ul#chatslist{
+	display: block;
+	position: absolute;
+	top: 40px; bottom: 0;	left: 0; right: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #EEE;
+	color: #333;
+	overflow: auto;
+}
+body>section#chats>ul#chatslist>li{
+	height: 56px;
+	list-style-type: none;
+	border-bottom: 1px solid #CCC;
+	cursor: pointer;
+}
+body>section#chats>ul#chatslist>li:hover{
+	background-color: #DDD;
+}
+body>section#chats>ul#chatslist>li img{
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-right: 10px;
+}
+body>section#chats>ul#chatslist>li>div#text{
+	padding: 10px;
+}
+body>section#chats>ul#chatslist>li>div#text>span.small{
+	display: block;
+	font-size: 0.8em;
+	color: #666;
+	height: 1em;
+	overflow: hidden;
+}
+body>section#chats>ul#over{
+	display: none;
+	position: absolute;
+	right: 0; top: 40px;
+	margin: 0; padding: 0;
+	background-color: #DDD;
+	color: #666;
+	list-style-type: none;
+	box-shadow: 0 0 5px #AAA;
+}
+body>section#chats>ul#over>li{
+	padding: 10px 20px;
+	cursor: pointer;
+}
+body>section#contacts>ul#contactslist{
+	display: block;
+	position: absolute;
+	top: 40px; bottom: 0;	left: 0; right: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #EEE;
+	color: #333;
+	overflow: auto;
+}
+body>section#contacts>ul#contactslist>li{
+	list-style-type: none;
+	border-bottom: 1px solid #CCC;
+	cursor: pointer;
+}
+body>section#contacts>ul#contactslist>li:hover{
+	background-color: #DDD;
+}
+body>section#contacts>ul#contactslist>li img{
+	float: left;
+	width: 56px;
+	height: 56px;
+	margin-right: 10px;
+}
+body>section#contacts>ul#contactslist>li>div#text{
+	padding: 10px;
+}
+body>section#contacts>ul#contactslist>li>div#text>span.small{
+	font-size: 0.8em;
+	color: #666;
+}
+body>section#contacts>figure#vcfimport{
+	background-image: url("../img/vcfimport.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 200px;
+	width: 150px; height: 150px;
+	border-radius: 5px;
+	background-color: #FB3;
+	border-top: 2px solid #FFDC97;
+	border-bottom: 2px solid #CE8900;
+}
+body>section#contacts>figure#vcfimport.loading{
+	background-color: #9C0;
+	border-top: 2px solid #CBFF31;
+	border-bottom: 2px solid #4E6800;	
+}
+body>section#chat>header>figure{
+	margin: 0;
+	padding: 0;
+}
+body>section#chat>header>figure>img{
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+body>section#chat>header>figure>figcaption>h1{
+	margin: 0;
+	padding-top: 2px;
+	font-size: 1.2em;
+	margin-bottom: -5px;
+}
+body>section#chat>header>figure>figcaption>span#lastseen{
+	font-size: 0.9em;
+}
+body>section#chat>ul#messages{
+	display: block;
+	position: absolute;
+	top: 40px; bottom: 70px; left: 0; right: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #CCC;
+	color: #333;
+	overflow: auto;
+}
+body>section#chat>ul#messages li{
+	background-color: #EEE;
+	padding: 10px 20px;
+	border-bottom: 1px solid #DDD;
+	list-style-type: none;
+}
+body>section#chat>ul#messages li.from{
+	text-align: right;	
+}
+body>section#chat>ul#messages li.to{
+	text-align: left;
+	color: #888;
+}
+body>section#chat>ul#messages>li>span#body{
+}
+body>section#chat>ul#messages>li>span#timestamp{
+	display: block;
+	color: #888;
+	font-size: 0.8em;
+}
+body>section#chat>div#bottom{
+	display: block;
+	position: absolute;
+	bottom: 0px; left: 0; right: 0;
+	height: 70px;
+	background-color: #EEE;	
+	border-top: 1px solid #BBB;
+}
+body>section#chat>div#bottom>div#msg{
+	display: block;
+	position: absolute;
+	left: 5px; right: 40px; bottom: 5px;
+	height: 48px;
+	padding: 5px;
+	border: 1px solid #BBB;
+	border-radius: 2px;
+	background-color: #FFF;
+	color: #333;
+	outline: 0;
+	overflow: auto;
+}
+body>section#chat>div#bottom>div#msg:focus{
+	border: 1px solid #FB3;
+}
+body>section#chat>div#bottom>a#send{
+	padding: 16px 3px 16px 5px;
+	float: right;
+}
+body>section#account>div{
+	display: block;
+	position: absolute;
+	top: 40px; bottom: 0;	left: 0; right: 0;
+	margin: 0;
+	padding: 0;
+	background-color: #EEE;
+	color: #333;
+}
+body>section#account>div>article#actype{
+	padding: 15px;
+}
+body>section#account>div>article#actype>span{
+	display: block;
+	margin-top: 5px;
+	color: #690;
+}
+body>section#account>div>article#acdetails{
+	background-color: #F6F6F6;
+}
+body>section#account>div>article#acdetails>header{
+	padding: 5px 15px;
+	background-color: #DDD;
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #CCC;
+}
+body>section#account>div>article#acdetails>ul{
+	margin: 0; padding: 0;
+	list-style-type: none;
+}
+body>section#account>div>article#acdetails>ul>li{
+	padding: 15px;
+	border-bottom: 1px solid #DDD;
+}
+body>section#account>div>article#acdetails>ul>li>span{
+	display: block;
+	margin-top: 5px;
+	color: #666;
+}
+body>section#account>div>a#purchase{
+	display: block;
+	margin: 20px;
+	padding: 10px 20px;
+	background-color: #F80;
+	color: #FFF;
+	border-radius: 2px;
+	border: none;
+	border-top: 1px solid #FB3;
+	border-bottom: 1px solid  #BE6700;
+	font-size: 0.8em;
+	font-weight: bold;
+	text-align: center;
+}
+body>section#account>div>p#acwarning{
+	padding: 15px;
+	color: #666;
+	font-size: 0.9em;
+}
