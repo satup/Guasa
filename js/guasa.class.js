@@ -57,7 +57,7 @@ function Guasa(){
 				this.poller();
 				return true;
 			}else{
-				//this.incoming.push(answer);
+				//Process it as it came from polling
 			}
 		}
 	}
@@ -70,28 +70,29 @@ function Guasa(){
 		this.wa.runAsync("RequestLastSeen", new Array(contact.cc+contact.cel), callback);
 	}
 	
-	this.incomingRead = function(){
-		return this.wa.run("read", new Array());
-	}
-	
 	this.msgProcess = function(msg){
 		message = new Object();
-		from = msg.from_number;
+		contact = contactFind(msg.from_number);
+		chat = chatFind(contact);
 		message.id = msg.message_id;
 		message.class = "from";
 		message.timestamp = msg.timestamp;
 		message.body = msg.body_txt;
-		this.incoming.push(message);
+		console.log(chat + " " + contact + " " + msg.body_txt);
+		if(chat<0)chat = chatNew(contact);
+		if(message.body && messageFind(message.id, this.chats[chat].messages)<0){
+			this.chats[chat].messages.push(message);
+			localStorage.setItem("chats", JSON.stringify(this.chats));
+			if(this.section == "chat" && contact == this.chats[this.chats.length-1].contact)msgRender();
+		}
 	}
 	
 	this.poller = function(){
 		this.wa.runAsync("read", new Array(), function(answer){
-			console.log(answer);
-			/*if(answer){
+			if(answer){
 				g.msgProcess(answer);
 			}
-			g.poller();*/
 		})
-		setTimeout("g.poller();", 3000);
+		setTimeout("g.poller();", 1000);
 	}
 }

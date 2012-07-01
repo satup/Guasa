@@ -31,9 +31,7 @@ function chatWith(contact){
 	if(chats && chats.length > 0){
 		var ci = chatFind(contact);
 		if(ci<0){
-			chats[chats.length] = new Object();
-			chats[chats.length-1].contact = contact;
-			ci = chats.length-1;
+			ci = chatNew(contact);
 		}
 	}else{
 		chats = new Array();
@@ -44,6 +42,12 @@ function chatWith(contact){
 	localStorage.setItem("chats", JSON.stringify(chats));
 	g.chats = chats;
 	chatShow(ci);
+}
+
+function chatNew(contact){
+	chats[chats.length] = new Object();
+	chats[chats.length-1].contact = contact;
+	return chats.length-1;
 }
 
 function chatShow(ci){
@@ -72,6 +76,13 @@ function chatFind(contact){
 	return -1;
 }
 
+function messageFind(id, messages){
+	for(i in messages){
+		if(messages[i].id == id)return i;
+	}
+	return -1;
+}
+
 function chatPull(ci){
 	var temp = g.chats[ci];
 	g.chats.splice(ci, 1);
@@ -93,14 +104,7 @@ function msgSend(){
 		chat.messages[chat.messages.length-1].class = "to";
 		g.message(contact.cc, contact.cel, msg, function(answer){
 			if(answer){
-				chat.messages[chat.messages.length] = new Object();
-				chat.messages[chat.messages.length-1].id = time();
-				chat.messages[chat.messages.length-1].body = answer.body_txt;
-				chat.messages[chat.messages.length-1].timestamp = answer.timestamp;
-				chat.messages[chat.messages.length-1].class = "from";
-				g.chats[g.chats.length-1] = chat;
-				localStorage.setItem("chats", JSON.stringify(g.chats));
-				msgRender();
+				//Received by server (mark with one tick)
 			}
 		});
 		g.chats[g.chats.length-1] = chat;
