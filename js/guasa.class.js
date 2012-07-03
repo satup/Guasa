@@ -84,6 +84,15 @@ function Guasa(){
 			this.chats[chat].messages.push(message);
 			localStorage.setItem("chats", JSON.stringify(this.chats));
 			if(this.section == "chat" && contact == this.chats[this.chats.length-1].contact)msgRender();
+		    if(this.section == "chats"){
+					$("body>section#chats>ul#chatslist").empty();
+					
+					contact = g.contacts[contact];
+
+			sign = "←";
+				res = "<li id=\""+ chat +"\" onclick=\"chatShow(" + chat + ");\"><img src=\"" + contact.photo + "\" alt=\"\" id=\"photo\"/><img src=\"./img/icon.png\" alt=\"\" id=\"new\"/><div id=\"text\">" + contact.name + "<br /><span class=\"small\"><b>" + sign + " " + message.body + "</b></span></div></li>";
+			$("body>section#chats>ul#chatslist").append(res);
+            }
 		}
 	}
 	
