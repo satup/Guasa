@@ -17,8 +17,8 @@ function chatList(){
 				lastmsg = chat.messages[chat.messages.length-1];
 				if(lastmsg.class=="to")sign = "→";
 				else sign = "←";
-				res = "<li id=\""+ i +"\" onclick=\"chatShow(" + i + ");\"><img src=\"" + contact.photo + "\" alt=\"\" /><div id=\"text\">" + contact.name + "<br /><span class=\"small\">" + sign + " " + lastmsg.body + "</span></div></li>";
-			}else res = "<li id=\""+ i +"\" onclick=\"chatShow(" + i + ");\"><img src=\"" + contact.photo + "\" alt=\"\" /><div id=\"text\">" + contact.name + "</div></li>";
+				res = "<li id=\""+ i +"\" onclick=\"chatShow(" + i + ");\"><img src=\"" + contact.photo + "\" alt=\"\" id=\"photo\"/><div id=\"text\">" + contact.name + "<br /><span class=\"small\">" + sign + " " + lastmsg.body + "</span></div></li>";
+			}else res = "<li id=\""+ i +"\" onclick=\"chatShow(" + i + ");\"><img src=\"" + contact.photo + "\" alt=\"\" id=\"photo\"/><div id=\"text\">" + contact.name + "</div></li>";
 			$("body>section#chats>ul#chatslist").append(res);
 		}
 	}else{
