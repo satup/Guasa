@@ -154,10 +154,16 @@ body>section#chats>ul#chatslist>li{
 body>section#chats>ul#chatslist>li:hover{
 	background-color: #DDD;
 }
-body>section#chats>ul#chatslist>li img{
+body>section#chats>ul#chatslist>li img#photo{
 	float: left;
 	width: 56px;
 	height: 56px;
+	margin-right: 10px;
+}
+body>section#chats>ul#chatslist>li img#new{
+	float: right;
+	width: 20px;
+	height: 20px;
 	margin-right: 10px;
 }
 body>section#chats>ul#chatslist>li>div#text{
